@@ -10,6 +10,16 @@ public class CalcGame {
 	double a;
 	double b;
 	
+	//1~cnt까지의 합을 계산해서 리턴
+	int sum(int cnt) {
+		int result = 0;
+		
+		int i = 0;
+		for(i=1; i<=cnt; i++) {
+		result +=i;}
+		return result;
+	}
+
 	void input() {
 		//입력
 		Scanner scanner = new Scanner(System.in);
