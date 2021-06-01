@@ -1,5 +1,7 @@
 package co.yedam.score;
+//1. 클래스 설계도 (UML)
 
+//2. 클래스 선언
 public class ScoreArrApp {
 
 	int a = 10;
