@@ -1,4 +1,4 @@
-package co.yedam.member;
+package 클래스;
 
 public class Member {
 	String name;
