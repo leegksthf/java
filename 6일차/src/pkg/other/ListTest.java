@@ -57,19 +57,21 @@ class Memo {
 	public void insert() {
 		//키보드로 입력받아서 (scanner)
 		Memo memo = new Memo();
-		memo.title = ___; 
+		memo.title = ___;
 		memo.content = ___;
 		list.add(memo);
 	}
 	
 	public static void main(String[] args) {
 		ListTest listTest = new ListTest();
-		listTest.list.add(new Memo("자바 공부","열공합시다"));
-		listTest.list.add(new Memo("자바 시험","월요일에"));
-		listTest.list.add(new Memo("자바프로젝트","멋지게"));
+//		listTest.list.add(new Memo("자바 공부","열공합시다"));
+//		listTest.list.add(new Memo("자바 시험","월요일에"));
+//		listTest.list.add(new Memo("자바프로젝트","멋지게"));
 		
+		listTest.insert();
+		listTest.insert();
 		listTest.selectAll();
-		listTest.findTitle("자바 공부");
-		listTest.findContent("월요일");
+//		listTest.findTitle("자바 공부");
+//		listTest.findContent("월요일");
 	}
 }
