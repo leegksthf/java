@@ -26,7 +26,4 @@ public class Member {
 		Member s = ((Member)obj);
 		return this.id.equals(s.id) && this.name.equals(s.name);
 	}
-	
-	
-	
 }
