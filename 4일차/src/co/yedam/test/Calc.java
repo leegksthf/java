@@ -24,6 +24,7 @@ public class Calc {
 		return a + b;						//return뒤 값이 있으면 메서드 선언부에 데이터타입 적어줘야함
 	}
 	
+	
 	//4. 가변인수
 	int sum3(int ...arr) {
 		int result = 0;

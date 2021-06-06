@@ -31,8 +31,8 @@ class Memo {
 			Memo memo = list.get(i);
 			System.out.println(memo.title + "\t" + memo.content);
 		}
-	}
-
+	}	
+	
 	// 제목검색
 	public void findTitle(String title) {
 		for (int i = 0; i < list.size(); i++) {
@@ -42,25 +42,28 @@ class Memo {
 			}
 		}
 	}
-
+	
+	
 	// 내용검색
-	public void findContent(String content) {
-		for (int i = 0; i < list.size(); i++) {
+	public void findcontent(String content) {
+		for(int i=0 ; i < list.size();i++) {
 			Memo memo = list.get(i);
-			if (memo.content.contains(content)) {				//contains: 부분일치 equals:완전일치
+			if(memo.content.contains(content)) {
 				System.out.println(memo.title + "\t" + memo.content);
 			}
+			
 		}
 	}
-
+	
+	
 	// 등록
-	public void insert() {
-		//키보드로 입력받아서 (scanner)
+	public void insert() {	
 		Memo memo = new Memo();
 		memo.title = ___;
 		memo.content = ___;
 		list.add(memo);
 	}
+
 	
 	public static void main(String[] args) {
 		ListTest listTest = new ListTest();
@@ -68,9 +71,9 @@ class Memo {
 //		listTest.list.add(new Memo("자바 시험","월요일에"));
 //		listTest.list.add(new Memo("자바프로젝트","멋지게"));
 		
-		listTest.insert();
-		listTest.insert();
-		listTest.selectAll();
+	//	listTest.insert();
+	//	listTest.insert();
+	//	listTest.selectAll();
 //		listTest.findTitle("자바 공부");
 //		listTest.findContent("월요일");
 	}
