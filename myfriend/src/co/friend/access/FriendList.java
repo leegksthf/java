@@ -10,10 +10,9 @@ import java.util.Scanner;
 import co.friend.model.Friend;
 
 public class FriendList implements FriendAccess {
+	
 	ArrayList<Friend> friends;
-
 	String path = "d:/temp/friend.txt";
-
 	public void open() {
 		try {
 			Scanner scanner = new Scanner(new File(path));

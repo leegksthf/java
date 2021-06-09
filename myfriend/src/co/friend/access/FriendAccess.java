@@ -12,7 +12,7 @@ import co.friend.model.Friend;
  */
 // 친구관리 개발 시 개발 표준
 public interface FriendAccess{
-	/*public static final*/String model = "dd";
+	/*public static final*/String model = "ddd";
 	
 	//등록
 	public void insert(Friend friend);

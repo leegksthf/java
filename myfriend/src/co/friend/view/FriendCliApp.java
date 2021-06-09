@@ -2,13 +2,15 @@ package co.friend.view;
 
 import java.util.List;
 
-import co.friend.access.FriendList;
+import co.friend.access.FriendAccess;
+import co.friend.access.FriendDAO;
 import co.friend.model.Friend;
 import co.friend.util.ScannerUtil;
 
 public class FriendCliApp {
 
-	FriendList friendList = new FriendList();
+	//FriendList friendList = new FriendList();
+	FriendAccess friendList = new FriendDAO();
 	
 	//프로그램 시작
 	public void start() {
@@ -58,8 +60,8 @@ public class FriendCliApp {
 	//이름으로 검색해서 전화번호수정
 	public void update() {
 		 Friend friend = new Friend();
-		 friend.setName(ScannerUtil.readStr());
-		 friend.setTel(ScannerUtil.readStr());
+		 friend.setName(ScannerUtil.readStr("이름 입력"));
+		 friend.setTel(ScannerUtil.readStr("수정할 번호 입력"));
 		 friendList.update(friend);
 	}
 

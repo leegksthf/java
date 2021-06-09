@@ -60,7 +60,7 @@ public class ScannerUtil {
 		System.out.println("구분,이름,전화번호>");				//초등,홍길동,1111
 		String result = scanner.next();
 		String[] arr = result.split(",");
-		Friend friend = new Friend(arr[0],arr[1],arr[2]);	
+		Friend friend = new Friend(arr[0],arr[1],arr[2]);
 //		friend.setGubun(arr[0]);
 //		friend.setName(arr[1]);
 //		friend.setTel(arr[2]);

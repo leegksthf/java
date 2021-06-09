@@ -3,9 +3,9 @@ package namename;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class ¹éÁØ10818 {
+public class ï¿½ï¿½ï¿½ï¿½10818 {
 public static void main(String[] args) {
-	//input, array, for, sysout
+	
 	Scanner scanner = new Scanner(System.in);
 	int N = scanner.nextInt();
 	int num[] = new int[N];
