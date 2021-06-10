@@ -16,9 +16,13 @@ public class MemoApp {
 		System.out.println("1.등록   2.날짜로조회  0.종료");
 		System.out.print("입력>");
 		menu = scanner.nextInt();
+		scanner.nextLine();
 		if(menu ==1) {
 			MemoInsert service = new MemoInsert();
-			service.execute(memoData);				
+			service.execute(memoData);
+			for(Memo m : memoData.memos) {
+				System.out.println(m);
+			}
 		}else if (menu == 2) {
 			MemoFindDate service = new MemoFindDate();
 			service.execute(memoData);
