@@ -12,8 +12,8 @@ public interface BoardAccess {
 	//글수정
 	public void update(Board board);
 	//글삭제
-	public void delete(String id);
+	public void delete(int id);
 	//한건조회
-	public Board selectOne(String id);
+	public Board selectOne(int id);
 	
 }

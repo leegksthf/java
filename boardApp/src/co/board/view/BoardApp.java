@@ -1,5 +1,6 @@
 package co.board.view;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import co.board.access.BoardAccess;
@@ -22,13 +23,45 @@ BoardAccess boardList = new BoardDAO();
 			case 3:		delete();		break;
 			case 4:		selectAll();	break;
 			case 5:		findId();		break;
+			case 6:		comment();		break;
 			}
 		}while(menunum != 0);
 	}
 	
+	private void comment() {
+
+		int menunum;
+		int a;
+		
+		BoardDAO dao = new BoardDAO();
+		do {
+			menunum = ScannerUtil.readInt("1.댓글조회 2.댓글입력");//메뉴 선택
+			switch (menunum) {				//실행
+			case 1:
+				System.out.println("조회할 글 번호");
+				a = ScannerUtil.readInt("입력");
+				ArrayList<Board> list = dao.commentSelectOne(a);
+				for(Board board : list ) {
+					System.out.println("글 번호 : " + board.getId() + " , 댓글 : " + board.getContent());
+				}
+				break;
+				
+			case 2:
+				System.out.println("댓글 달 게시글의 id를 입력하세요");
+				a = ScannerUtil.readInt("입력");
+				System.out.println("댓글 내용을 입력하세요");
+				String c = ScannerUtil.readStr("입력");
+				System.out.println("작성자를 입력하세요");
+				String d = ScannerUtil.readStr("입력");
+				dao.commentInsert(a,c,d);
+			}
+		}while(menunum != 0) ;
+		
+	}
+
 	private void findId() {
 		//전화번호입력
-		String id = ScannerUtil.readStr();
+		int id = ScannerUtil.readInt();
 		Board board = boardList.selectOne(id);
 		System.out.println(board);
 		//friendList에서 조회
@@ -44,14 +77,14 @@ BoardAccess boardList = new BoardDAO();
 
 	// 글번호로 검색해서 삭제
 	private void delete() {
-		String id = ScannerUtil.readStr();
+		int id = ScannerUtil.readInt();
 		boardList.delete(id);	
 	}
 
 	//이름으로 검색해서 내용 수정
 	public void update() {
 		 Board board = new Board();
-		 board.setId(ScannerUtil.readStr("이름 입력"));
+		 board.setId(ScannerUtil.readInt("이름 입력"));
 		 board.setContent(ScannerUtil.readStr("수정할 내용"));
 		 boardList.update(board);
 	}
@@ -78,6 +111,7 @@ BoardAccess boardList = new BoardDAO();
 		System.out.println("=|3. 글삭제	|");
 		System.out.println("=|4. 전체조회	|");
 		System.out.println("=|5. 번호로조회	|");
+		System.out.println("=|6. 댓글관리	|");
 		System.out.println("= 0. 종료=======");
 	}
 	}

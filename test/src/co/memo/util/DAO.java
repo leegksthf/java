@@ -1,4 +1,4 @@
-package co.board.util;
+package co.memo.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -65,10 +65,10 @@ public class BoardDAO extends DAO implements BoardAccess {
 	}
 
 	@Override
-	public void delete(String id) {
+	public void delete(int id) {
 		try {
-			psmt = conn.prepareStatement("delete from board where id = ?");
-			psmt.setString(1, id);
+			psmt = conn.prepareStatement("delete from board where b_id = ?");
+			psmt.setInt(1, id);
 			int r = psmt.executeUpdate();
 			System.out.println(r + "삭제되었습니다.");
 		} catch(SQLException e) {
@@ -77,12 +77,12 @@ public class BoardDAO extends DAO implements BoardAccess {
 	}
 
 	@Override
-	public Board selectOne(String id) {
+	public Board selectOne(int id) {
 		ArrayList<Board> bList = new ArrayList<>();
 		Board b = null;
 		try {
 			psmt = conn.prepareStatement("select * from board where id = ?");
-			psmt.setString(1, id);
+			psmt.setInt(1, id);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				b = new Board();
@@ -96,4 +96,5 @@ public class BoardDAO extends DAO implements BoardAccess {
 		}
 		return b;
 	}
+
 }

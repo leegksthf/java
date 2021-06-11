@@ -1,13 +1,13 @@
 package co.board.model;
 
 public class Board {
-	protected String id;
+	protected int id;
 	protected String title;
 	protected String content;
 	protected String writer;
 	
 	public Board() {}
-	public Board(String id, String title, String content, String writer) {
+	public Board(int id, String title, String content, String writer) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -26,10 +26,10 @@ public class Board {
 	public String toString() {
 		return "Board [id=" + id + ", title=" + title + ", content=" + content + ", writer=" + writer + "]";
 	}
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getTitle() {
