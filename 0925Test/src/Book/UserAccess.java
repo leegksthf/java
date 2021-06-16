@@ -1,15 +1,11 @@
 package Book;
 
-import java.util.ArrayList;
-
 public interface UserAccess {
-		public void join(User user);				// 회원가입		
-		public int login(String id, String pwd);			// 로그인			
-		public void logOut();			// 로그아웃		
-		public User userSearch(String name); 		// 회원 검색		
-		public ArrayList<User> UserList();	// 회원리스트 출력	
-		public void userUpdate(User user); 		// 회원정보 수정	
-		public void userDelete(String id, String pwd);// 회원탈퇴, 삭제
-		public int userCheck(String id, String pwd);
+		public boolean join(User user);				// 회원가입		
+		public int login(String id, String pwd);			// 로그인	(1:로그인 성공 0: 비밀번호 오류 -1: 아이디 없음)		
+		public boolean logOut();			// 로그아웃		
+		public String userSearch(String birth); 		// 회원 검색		
+		public boolean userUpdate(User user); 		// 회원정보 수정	
+		public boolean userDelete(String id, String pwd);// 회원탈퇴, 삭제
 
 	}

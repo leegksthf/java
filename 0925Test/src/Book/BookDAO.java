@@ -7,24 +7,28 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class BookDAO extends DAO implements BookAccess {
-
 	static PreparedStatement psmt;
 	static ResultSet rs;
-	static Connection conn;
 
 	@Override
 	public ArrayList<Book> selectAll() {
-		connect();
-		ArrayList<Book> bookList = new ArrayList<>();
+		ArrayList<Book> bookList = null;
 		String sql = "select * from book";
 		try {
-			psmt = conn.prepareStatement(sql);
+			psmt = connect().prepareStatement(sql);
 			rs = psmt.executeQuery();
+			bookList = new ArrayList<Book>();
+			
 			while (rs.next()) {
 				Book book = new Book();
 				book.setGenre(rs.getString("Genre"));
 				book.setName(rs.getString("name"));
-				book.setStock(rs.getInt("stock"));
+				book.setDueDate(rs.getString("due_date"));
+				if(rs.getInt("rental") == 1) {
+					book.setRental(true);
+				} else {
+					book.setRental(false);
+				}
 				bookList.add(book);
 			}
 		} catch (SQLException e) {
@@ -34,57 +38,79 @@ public class BookDAO extends DAO implements BookAccess {
 	}
 
 	@Override
-	public void insert(Book book) {
+	public boolean insert(Book book) {
 		try {
-			psmt = conn.prepareStatement("insert into book(genre,name,stock,rental) values(?,?,?,?) ");
+			psmt = connect().prepareStatement("insert into book (genre,name,due_date,rental) values(?,?,?,?) ");
 			psmt.setString(1, book.getGenre());
 			psmt.setString(2, book.getName());
-			//psmt.setInt(3, book.getStock());
+			psmt.setString(3, book.getDueDate());
+			if(book.isRental()) {
+				psmt.setInt(4, 1);				
+			} else {
+				psmt.setInt(4, 0);
+			}
 			int r = psmt.executeUpdate();
-			System.out.println(r + "건 입력.");
+			if(r != 0) {
+				return true;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return false;
 	}
 
 	@Override
-	public void update(Book book) {
+	public boolean update(String name, Book book) {
 		try {
-			psmt = conn.prepareStatement("update book set =? where name=?");
-			psmt.setString(1, book.get());
+			psmt = connect().prepareStatement("update book set genre = ?, name = ?, due_date = ? where name = ?");
+			psmt.setString(1, book.getGenre());
 			psmt.setString(2, book.getName());
+			psmt.setString(3, book.getDueDate());
+			psmt.setString(4, name);
 			int r = psmt.executeUpdate();
-			System.out.println(r + "건 변경되었습니다.");
+			
+			if(r != 0) {
+				return true;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return false;
 	}
 
 	@Override
-	public void delete(String name) {
+	public boolean delete(String name) {
 		try {
-			psmt = conn.prepareStatement("delete from book where name = ?");
+			psmt = connect().prepareStatement("delete from book where name = ?");
 			psmt.setString(1, name);
 			int r = psmt.executeUpdate();
-			System.out.println(r + "삭제되었습니다.");
+			if(r != 0) {
+				return true;
+			}
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
+		return false;
 	}
 
 	@Override
 	public Book bookSearch(String name) {
-		ArrayList<Book> bList = new ArrayList<>();
 		Book b = null;
 		try {
-			psmt = conn.prepareStatement("select * from book where name = ?");
+			psmt = connect().prepareStatement("select * from book where name = ?");
 			psmt.setString(1, name);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				b = new Book();
 				b.setName(rs.getString("name"));
 				b.setGenre(rs.getString("genre"));
-				b.setStock(rs.getInt("stock"));
+				b.setDueDate(rs.getString("due_date"));
+				
+				if(rs.getInt("rental") == 1) {
+					b.setRental(true);
+				} else {
+					b.setRental(false);
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -94,13 +120,15 @@ public class BookDAO extends DAO implements BookAccess {
 
 
 	@Override
-	public void borrow() {
+	public boolean borrow() {
+		return false;
 		
 		
 	}
 
 	@Override
-	public void back() {
+	public boolean back() {
+		return false;
 		
 		
 	}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="0925Test/src"/>
+	<classpathentry kind="src" path="2일차/src"/>
+	<classpathentry kind="src" path="3일차/src"/>
+	<classpathentry kind="src" path="4일차/src"/>
+	<classpathentry kind="src" path="6일차/src"/>
+	<classpathentry kind="src" path="7일차/src"/>
+	<classpathentry kind="src" path="board/src"/>
+	<classpathentry kind="src" path="boardApp/src"/>
+	<classpathentry kind="src" path="java_book/src"/>
+	<classpathentry kind="src" path="myfriend/src"/>
+	<classpathentry kind="src" path="naemnaem,/src"/>
+	<classpathentry kind="src" path="sqlite/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-16"/>
+	<classpathentry kind="src" path="test/src"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
