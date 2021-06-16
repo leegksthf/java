@@ -65,7 +65,7 @@ public class Main {
 							if(ch==4) break;
 				
 							switch (ch) {
-							case 1: user.printUserList();break;		// 회원리스트
+							case 1: user.UserList();break;		// 회원리스트
 							case 2: user.userSearch();break;		// 아이디검색
 							case 3: user.userDelete();break;		// 유저 삭제
 							}
