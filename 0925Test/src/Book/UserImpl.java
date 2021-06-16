@@ -3,6 +3,7 @@ package Book;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -118,7 +119,7 @@ public class UserImpl implements UserAccess {
 	}
 
 	@Override
-	public void printUserList() {								
+	public ArrayList<User> UserList() {								
 		System.out.println("\n회원가입 명단");
 		System.out.println("전체 인원수 : " + list.size());
 		for (User vo : list) {
