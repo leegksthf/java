@@ -65,12 +65,15 @@
 		}
 		
 		let param = "&name=" + name + "&content=" + content;
-		// ajax 호출
+		// ajax 호출..
 		let xhtp = new XMLHttpRequest();
 		xhtp.open('get', '../CommentsServ?cmd=insert' + param);
 		xhtp.send();
 		xhtp.onreadystatechange = addResult;
 	}
+	
+	//ajax 호출 수정.
+	function updateComment
 	
 	//등록 콜백 함수.
 	function addResult(){
@@ -104,8 +107,9 @@
 		updateForm.name.value = comment.name;
 		updateForm.content.value = comment.content;
 		updateFormDiv.style.display = 'block';
-		
 	}
+	
+	
 </script>
 </head>
 <body>
