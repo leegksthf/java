@@ -120,17 +120,47 @@ public class BookDAO extends DAO implements BookAccess {
 
 
 	@Override
-	public boolean borrow() {
+	public boolean borrow(String name, String date) {
+
+		Book book = null;
+		book = bookSearch(name);
+		if(book==null||book.isRental()) {
+			return false;
+		}
+		try {
+			psmt = connect().prepareStatement("update book set rental = 1, due_date = ? where name = ?");
+			psmt.setString(1, date);
+			psmt.setString(2, name);
+			int r = psmt.executeUpdate();
+			
+			if(r != 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
-		
-		
 	}
 
 	@Override
-	public boolean back() {
+	public boolean back(String name) {
+		Book book = null;
+		book = bookSearch(name);
+		if(book==null||!book.isRental()) {
+			return false;
+		}
+		try {
+			psmt = connect().prepareStatement("update book set rental = 0 where name = ?");
+			psmt.setString(1, name);
+			int r = psmt.executeUpdate();
+			
+			if(r != 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
-		
-		
 	}
 
 }

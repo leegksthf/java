@@ -110,7 +110,7 @@ public class UserView {
 		}
 	}
 
-	public void userDelete() {
+	public boolean userDelete() {
 		System.out.println("\n회원탈퇴");
 		String name, pwd;
 
@@ -124,8 +124,12 @@ public class UserView {
 
 		if (deleteResult) {
 			System.out.println("회원탈퇴 되었습니다.\n");
+			return true;
+			
+			
 		} else {
 			System.out.println("회원탈퇴에 실패했습니다.\n");
 		}
+		return false;
 	}
 }

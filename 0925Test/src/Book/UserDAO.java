@@ -52,7 +52,7 @@ public class UserDAO extends DAO implements UserAccess {
 
 	@Override
 	public boolean logOut() {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 

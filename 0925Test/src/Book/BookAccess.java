@@ -8,7 +8,7 @@ public interface BookAccess {
 	public boolean update(String name, Book book);
 	public boolean delete(String name);
 	public Book bookSearch(String name);
-	public boolean borrow(String name);
+	public boolean borrow(String name,String date);
 	public boolean back(String name);
 	
 }

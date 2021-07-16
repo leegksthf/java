@@ -93,14 +93,18 @@ public class BookView {
 		System.out.println("\n책 대여");
 
 		System.out.print("빌릴 책 이름을 입력하세요. > ");
-		boolean borrowResult = ba.borrow(scanner.nextLine());
+		String name = scanner.nextLine();
+		System.out.print("빌릴 기간을 입력하세요.(ex. 20210630) > ");
+		String date = scanner.nextLine();
+		boolean borrowResult = ba.borrow(name,date);
 		
-		if (!borrowResult) {
+		if (borrowResult) {
 			System.out.println("대여완.\n");
 		} else {
 			System.out.println("이미 대여중입니다.\n");
 		}
 	}
+	
 	public void backBook() {
 		System.out.println("\n책 반납");
 
@@ -109,6 +113,7 @@ public class BookView {
 		
 		if (backResult) {
 			System.out.println("정상적으로 반납 되었습니다.\n");
+			
 		} else {
 			System.out.println("대여중이 아닙니다.\n");
 		}
