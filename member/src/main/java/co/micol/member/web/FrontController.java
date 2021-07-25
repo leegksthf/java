@@ -24,7 +24,7 @@ import co.micol.member.command.MemberSearchForm;
 //@WebServlet("/FrontController")
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-     private HashMap<String, Command> map = new HashMap<String, Command>(); // 초기화
+     private HashMap<String, Command> map = new HashMap<String, Command>(); // 珥덇린�솕
      
     /**
      * @see HttpServlet#HttpServlet()
@@ -38,30 +38,30 @@ public class FrontController extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		// TODO command 객체를 여기에 등록한다.
-		map.put("/main.do", new MainCommand()); //홈
-		map.put("/memberList.do", new MemberListCommand()); //회원목록
-		map.put("/memberSearch.do", new MemberSearchCommand()); //회원검색
-		map.put("/memberSearchForm.do", new MemberSearchForm()); //회원검색 폼
-		map.put("/memberInsertForm.do", new MemberInsertForm()); //회원가입 폼
-		map.put("/memberInsert.do", new MemberInsert()); //회원가입
+		// TODO command 媛앹껜瑜� �뿬湲곗뿉 �벑濡앺븳�떎.
+		map.put("/main.do", new MainCommand()); //�솃
+		map.put("/memberList.do", new MemberListCommand()); //�쉶�썝紐⑸줉
+		map.put("/memberSearch.do", new MemberSearchCommand()); //�쉶�썝寃��깋
+		map.put("/memberSearchForm.do", new MemberSearchForm()); //�쉶�썝寃��깋 �뤌
+		map.put("/memberInsertForm.do", new MemberInsertForm()); //�쉶�썝媛��엯 �뤌
+		map.put("/memberInsert.do", new MemberInsert()); //�쉶�썝媛��엯
 	}
 
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO 여기가 요청분석 및 처리, view Page 선택하는 곳
-		request.setCharacterEncoding("utf-8"); // 한글깨짐 방지
-		// 실제 요청을 분석
+		// TODO �뿬湲곌� �슂泥�遺꾩꽍 諛� 泥섎━, view Page �꽑�깮�븯�뒗 怨�
+		request.setCharacterEncoding("utf-8"); // �븳湲�源⑥쭚 諛⑹�
+		// �떎�젣 �슂泥��쓣 遺꾩꽍
 		String uri = request.getRequestURI();
 		String context = request.getContextPath();
-		String path = uri.substring(context.length()); // uri - context 실제 요청페이지 ex)/main.do
+		String path = uri.substring(context.length()); // uri - context �떎�젣 �슂泥��럹�씠吏� ex)/main.do
 		
 		Command command = map.get(path); //Command command = new MainCommand();
-		String viewPage = command.execute(request, response); //실행된 결과를 보여줄 페이지 선택  viewPage = main/home
-	
-		if(!viewPage.endsWith(".do")) { //보여줄 페이지를 선택한다. 
+		String viewPage = command.execute(request, response); //�떎�뻾�맂 寃곌낵瑜� 蹂댁뿬以� �럹�씠吏� �꽑�깮  viewPage = main/home
+		
+		if(!viewPage.endsWith(".do")) { //蹂댁뿬以� �럹�씠吏�瑜� �꽑�깮�븳�떎. 
 			viewPage = "WEB-INF/views/" + viewPage + ".jsp";
 		}
 		

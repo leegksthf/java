@@ -25,7 +25,7 @@ public class MemberServiceImpl implements MemberService {
 		try {
 			conn = DAO.getConnection();
 			psmt = conn.prepareStatement(sql);
-			rs = psmt.executeQuery(); //select 구문일때
+			rs = psmt.executeQuery(); //select 구문일때 사용. 수행결과로 rs 객체의 값을 반환
 			while(rs.next()) {
 				vo = new MemberVO();
 				vo.setId(rs.getString("id"));
@@ -93,7 +93,7 @@ public class MemberServiceImpl implements MemberService {
 			psmt.setString(3, vo.getName());
 			psmt.setInt(4, vo.getAge());
 			psmt.setString(5, vo.getHobby());
-			n = psmt.executeUpdate();
+			n = psmt.executeUpdate();	//수행결과로 int 값을 반환. select 구문이 아닌 다른 구문을 수행할 때 사용되는 함수. INSERT / DELETE / UPDATE 
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
