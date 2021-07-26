@@ -21,13 +21,15 @@ public class EmpDAO {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, Integer.parseInt(employeeId));
 			rs = psmt.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				emp = new Employee();
 				emp.setEmployeeId(rs.getInt("employee_id"));
 				emp.setFirstName(rs.getString("first_name"));
 				emp.setLastName(rs.getString("last_name"));
 				emp.setEmail(rs.getString("email"));
 				emp.setHireDate(rs.getString("hire_date"));
+				emp.setSalary(rs.getInt("salary"));
+				//empList.add(emp);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

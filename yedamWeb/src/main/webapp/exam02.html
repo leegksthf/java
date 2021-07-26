@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>exam01</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+      $(document).ready(onLoadFunc);
+      
+      function onLoadFunc(){
+         $.ajax({
+            url:'members.json',  
+            success : successCallBack,
+            error : errorCallBack
+         });
+      }
+      
+      function successCallBack(result){ 
+         const tableTag = $('<table />');
+         for(let i=0; i<result.length; i++){
+            let liTag = $('<li />').attr('id', result[i].id) 
+            	.html('<strong>'+result[i].mem_id+'-'+result[i].first_name+'-'+result[i].last_name+'-'+result[i].email+'-'+result[i].gender+'-'+result[i].address+'</strong>')
+            tableTag.append(liTag);
+      }
+         $(tableTag).css({
+            'border':'solid'
+         });
+         
+      $('#show').append(tableTag);
+   }
+      
+      function errorCallBack(reject){
+         
+      }
+      
+   </script>
+</head>
+</html>
