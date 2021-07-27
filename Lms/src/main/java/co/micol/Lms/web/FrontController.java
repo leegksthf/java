@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.micol.Lms.command.Command;
+import co.micol.Lms.command.LoginForm;
 import co.micol.Lms.command.Main;
+import co.micol.Lms.command.login;
 
 /**
  * Servlet implementation class FrontController
@@ -36,6 +38,8 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Auto-generated method stub
 		map.put("/main.do", new Main());
+		map.put("/loginForm.do", new LoginForm());
+		map.put("/Login.do", new login());
 	}
 
 	/**

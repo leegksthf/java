@@ -13,6 +13,11 @@
 
 	<!-- Content Row -->
 	<div class="row">
+		<div>
+			<c:if test="${not empty id }">
+			${id }
+		</c:if>
+		</div>
 
 		<!-- Earnings (Monthly) Card Example -->
 		<div class="col-xl-3 col-md-6 mb-4">
