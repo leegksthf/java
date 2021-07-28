@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -15,10 +17,9 @@
 	<div class="row">
 		<div>
 			<c:if test="${not empty id }">
-			${id }
-		</c:if>
+				${id }
+			</c:if>
 		</div>
-
 		<!-- Earnings (Monthly) Card Example -->
 		<div class="col-xl-3 col-md-6 mb-4">
 			<div class="card border-left-primary shadow h-100 py-2">
@@ -359,5 +360,4 @@
 </div>
 <!-- /.container-fluid -->
 
-</div>
 <!-- End of Main Content -->

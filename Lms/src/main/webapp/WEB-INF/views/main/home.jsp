@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
 
+<meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
+
 <title>LMS - Dashboard</title>
 
 <!-- Custom fonts for this template-->
@@ -20,7 +19,6 @@
 <!-- Custom styles for this template-->
 <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -30,26 +28,31 @@
 
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin-2.min.js"></script>
-
+<!-- Custom styles for this page -->
+<link href="vendor/datatables/dataTables.bootstrap4.min.css"
+	rel="stylesheet">
 
 
 </head>
 
 <body id="page-top">
+
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 		<jsp:include page="sidebar.jsp" />
-		<!-- 사이드바 -->
+		<!-- 사이드 바 -->
 
 		<!-- Content Wrapper -->
 		<div id="content-wrapper" class="d-flex flex-column">
 
 			<!-- Main Content -->
 			<div id="content">
-				<jsp:include page="topbar.jsp"></jsp:include>
-				<jsp:include page="content.jsp"></jsp:include>
+
+				<jsp:include page="topbar.jsp" />
+				<jsp:include page="boardList.jsp" />
 				<!-- 몸체 -->
-				<jsp:include page="footer.jsp"></jsp:include>
+				<jsp:include page="footer.jsp" />
+
 			</div>
 			<!-- End of Content Wrapper -->
 
@@ -79,18 +82,20 @@
 					<div class="modal-footer">
 						<button class="btn btn-secondary" type="button"
 							data-dismiss="modal">Cancel</button>
-						<a class="btn btn-primary" href="login.html">Logout</a>
+						<a class="btn btn-primary" href="logout.do">Logout</a>
 					</div>
-					<!-- Page level plugins -->
-					<script src="vendor/chart.js/Chart.min.js"></script>
-
-					<!-- Page level custom scripts -->
-					<script src="js/demo/chart-area-demo.js"></script>
-					<script src="js/demo/chart-pie-demo.js"></script>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<!-- Page level plugins -->
+	<script src="vendor/chart.js/Chart.min.js"></script>
+
+	<!-- Page level custom scripts -->
+	<script src="js/demo/chart-area-demo.js"></script>
+	<script src="js/demo/chart-pie-demo.js"></script>
+
 </body>
 
 </html>

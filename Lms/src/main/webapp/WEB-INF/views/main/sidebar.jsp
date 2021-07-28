@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<div id="wrapper">
+    <div id="wrapper">
+
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -20,7 +21,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="main.do">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>My page</span></a>
+                    <span>My Page</span></a>
             </li>
 
             <!-- Divider -->
@@ -84,7 +85,7 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="loginFrom.do">Login</a>
+                        <a class="collapse-item" href="loginForm.do">Login</a>
                         <a class="collapse-item" href="register.html">Register</a>
                         <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
                         <div class="collapse-divider"></div>
@@ -104,9 +105,9 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="snsList.do">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                    <span>커뮤니티</span></a>
             </li>
 
             <!-- Divider -->
@@ -126,4 +127,4 @@
 
         </ul>
         <!-- End of Sidebar -->
-       </div>
+        </div>
