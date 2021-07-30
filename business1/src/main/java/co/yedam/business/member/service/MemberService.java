@@ -1,13 +1,12 @@
-package co.micol.prj.member.service;
+package co.yedam.business.member.service;
 
 import java.util.List;
 
-import co.micol.prj.member.vo.MemberVO;
+import co.yedam.business.member.vo.MemberVO;
 
 public interface MemberService {
 	List<MemberVO> memberSelectList();
-	MemberVO memberSelect(MemberVO vo);
-	MemberVO memberLogin(MemberVO vo);	//로그인
+	MemberVO memberLogin(MemberVO vo);
 	int memberInsert(MemberVO vo);
 	int memberDelete(MemberVO vo);
 	int memberUpdate(MemberVO vo);
