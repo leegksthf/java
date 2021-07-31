@@ -5,7 +5,6 @@ import java.util.List;
 import co.micol.Lms.member.vo.MemberVO;
 
 public interface MemberService {
-	
 	List<MemberVO> memberSelectList();
 	MemberVO memberSelect(MemberVO vo);
 	MemberVO memberLogin(MemberVO vo);

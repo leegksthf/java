@@ -11,5 +11,4 @@ public interface BoardService {
 	int boardInsert(BoardVO vo);
 	int boardDelete(BoardVO vo);
 	int boardUpdate(BoardVO vo);
-	
 }
