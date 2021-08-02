@@ -126,15 +126,22 @@ a {
   border-top: 1px solid #edf0f5 !important; }
 
 .site-footer {
-  padding: 4em 0;
-  background: #333333; }
+  padding-top: 30px;
+  background: #fff;
+   }
   .site-footer p {
     color: #737373; }
-  .site-footer h2, .site-footer h3, .site-footer h4, .site-footer h5 {
+  .site-footer c {
+  	size:
+  }
+  .site-footer h2,  .site-footer h4, .site-footer h5 {
     color: #fff; }
   .site-footer h3 {
+  color: #862633;
     font-size: 20px;
-    margin-bottom: 30px; }
+    margin-bottom: 5px;
+
+     }
   .site-footer a {
     color: #999999; }
     .site-footer a:hover {
