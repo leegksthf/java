@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comm.yedam.app.impl.EmpMapper">
+	<!-- resultType 너무 기니까 config.xml에서 typeAlias 추가해줌 -->
+	<select id="getEmp" resultType="emp" parameterType="string"><!-- 's'로 쓰기. mybatis는 값이 #{} -->
+		select employee_id, first_name, job_id
+		FROM employees where department_id = #{value}
+	</select>
+	<select id="getDept" resultType="departments">
+		SELECT * FROM departments
+	</select>
+</mapper>

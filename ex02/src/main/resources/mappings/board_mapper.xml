@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yedam.app.board.mapper.BoardMapper">
+	<select id="getList" resultType="BoardVO">
+	<!-- resultType= "com.yedam.app.board.domain.BoardVO"해도 됨. 리턴타입 적어주면 됨 -->
+		SELECT BNO
+			,TITLE
+			,CONTENT
+			,WRITER
+			,REGDATE
+			,UPDATEDATE	<!-- * 말고 칼럼명 다 써주기 --> 
+		FROM TBL_BOARD
+		WHERE BNO > 0
+		ORDER BY BNO DESC
+	</select>
+	<select id="read" resultType="BoardVO" parameterType="BoardVO">
+		SELECT BNO, TITLE, CONTENT, WRITER
+				,REGDATE, UPDATEDATE
+		FROM TBL_BOARD
+		WHERE BNO = #{bno}
+	</select>
+	<insert id="insert">
+		<selectKey keyProperty="bno" resultType="long" order="BEFORE">
+			SELECT SEQ_BOARD.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO TBL_BOARD(
+							 BNO
+							,TITLE
+							,CONTENT
+							,WRITER	<!-- DATE들은 디폴트값 정해줘서 안적어줘도 됨 -->
+		)
+		VALUES(
+				 #{bno}
+				,#{title}			<!-- BoardVO 값들 넣어줌 -->
+				,#{content}
+				,#{writer}
+		)
+	</insert>
+	
+	<delete id="delete">
+		DELETE FROM TBL_BOARD WHERE BNO = #{bno}
+	</delete>
+	
+	<update id="update">
+		UPDATE TBL_BOARD
+		SET TITLE=#{title},
+			CONTENT=#{content},
+			WRITER=#{writer},
+			updateDate = sysdate
+			WHERE BNO=#{bno}
+	</update>
+	
+	
+</mapper>
