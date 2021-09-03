@@ -20,6 +20,7 @@ public class SearchSns implements Command {
 		int n = Integer.valueOf(request.getParameter("sNo"));
 		list = snsDao.snsSelect(n);
 		request.setAttribute("list", list);
+		
 		return "main/snsDetail";
 	}
 

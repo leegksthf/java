@@ -1,5 +1,8 @@
 package co.micol.member.vo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MemberVO { //member table 과 컬럼명 및 타입이 일치하도록 
 	
 	private String id;
@@ -9,6 +12,7 @@ public class MemberVO { //member table 과 컬럼명 및 타입이 일치하도�
 	private String hobby;
 	
 	public MemberVO() {
+		MemberVO vo = new MemberVO();
 		
 	}
 
