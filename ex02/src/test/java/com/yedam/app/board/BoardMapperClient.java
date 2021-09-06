@@ -9,7 +9,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.yedam.app.board.domain.BoardVO;
-import com.yedam.app.board.service.BoardService;
+import com.yedam.app.board.domain.Criteria;
+import com.yedam.app.board.mapper.BoardMapper;
 
 import lombok.extern.java.Log;
 
@@ -18,14 +19,17 @@ import lombok.extern.java.Log;
 @ContextConfiguration("classpath:/spring/*-context.xml")
 public class BoardMapperClient {
 
-	@Autowired BoardService boardMapper; //생성자 만들 필요 없으려고
+	@Autowired BoardMapper boardMapper; //생성자 만들 필요 없으려고
 	
 	@Test
 	public void getList() {
-		log.info(boardMapper.getList().toString());
+		Criteria cri = new Criteria(1,20);	//첫번째 페이지의 20
+		cri.setType("W");
+		cri.setKeyword("choi");
+		log.info(boardMapper.getList(cri).toString());
 	}
 	
-	@Test
+	//@Test
 	public void insert() {
 		//BoardVO 생성
 		BoardVO vo = new BoardVO();
@@ -36,7 +40,7 @@ public class BoardMapperClient {
 		log.info(Long.toString(vo.getBno()));
 	}
 	
-	@Test
+	//@Test
 	public void read() {
 		BoardVO vo = new BoardVO();
 		vo.setBno(1);
@@ -44,7 +48,7 @@ public class BoardMapperClient {
 		log.info(vo.toString());
 	}
 	
-	@Test
+	//@Test
 	public void update() {
 		BoardVO vo = new BoardVO();
 		//vo.setBno(1);
@@ -56,7 +60,7 @@ public class BoardMapperClient {
 		//assertEquals(result,1);
 	}
 	
-	@Test
+	//@Test
 	//@Rollback
 	public void delete() {
 		BoardVO vo = new BoardVO();

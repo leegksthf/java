@@ -3,6 +3,7 @@ package com.yedam.app.board.service;
 import java.util.List;
 
 import com.yedam.app.board.domain.BoardVO;
+import com.yedam.app.board.domain.Criteria;
 
 public interface BoardService {
 	//CRUD
@@ -19,5 +20,8 @@ public interface BoardService {
 	public BoardVO read(BoardVO vo);
 	
 	//전체조회
-	public List<BoardVO> getList();							//List로 받아오는 것. boardvo에 담음
+	public List<BoardVO> getList(Criteria cri);							//List로 받아오는 것. boardvo에 담음
+	
+	//전체 데이터 건수
+	public int getTotalCount(Criteria cri);
 }
