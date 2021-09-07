@@ -33,7 +33,7 @@
 		<c:forEach items="${list}" var="board">		<!-- c:foreach는 배열, map에 저장돼있는 값들만큼 반복해서 처리할 수 있는 태그 -->	
 			<tr>
 				<td>${board.bno}</td>
-				<td><a class="move" href="get?bno=${board.bno}">${board.title }</a></td>
+				<td><a class="move" href="${board.bno}">${board.title }</a></td>
 				<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate }" /></td>
 			</tr>
 		</c:forEach>
