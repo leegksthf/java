@@ -2,6 +2,8 @@ package com.yedam.app.board.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.yedam.app.board.domain.BoardVO;
 import com.yedam.app.board.domain.Criteria;
 
@@ -24,4 +26,12 @@ public interface BoardMapper {
 	
 	//전체 데이터 건수
 	public int getTotalCount(Criteria cri);
+	
+	//댓글 수 업데이트
+	public void updateReplycnt(
+			@Param("bno") long bno, 
+			@Param("amount") long amount
+			);
+	
+	
 }

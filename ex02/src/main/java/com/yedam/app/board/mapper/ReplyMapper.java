@@ -22,4 +22,7 @@ public interface ReplyMapper {
 	
 	//전체조회
 	public List<ReplyVO> getList(@Param("cri") Criteria cri, @Param("bno") long bno);
+	
+	//해당 게시글의 댓글 수
+	public int getCountByBno(Long bno);
 }

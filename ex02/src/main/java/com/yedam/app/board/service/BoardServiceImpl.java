@@ -1,4 +1,4 @@
-package com.yedam.app.board.mapper;
+package com.yedam.app.board.service;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.yedam.app.board.domain.BoardVO;
 import com.yedam.app.board.domain.Criteria;
-import com.yedam.app.board.service.BoardService;
+import com.yedam.app.board.mapper.BoardMapper;
 
 @Service
 public class BoardServiceImpl implements BoardService {

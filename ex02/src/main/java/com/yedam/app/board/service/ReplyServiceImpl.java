@@ -1,21 +1,23 @@
-package com.yedam.app.board.mapper;
-
-import java.util.List;
+package com.yedam.app.board.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.yedam.app.board.domain.Criteria;
+import com.yedam.app.board.domain.ReplyPageVO;
 import com.yedam.app.board.domain.ReplyVO;
-import com.yedam.app.board.service.ReplyService;
+import com.yedam.app.board.mapper.BoardMapper;
+import com.yedam.app.board.mapper.ReplyMapper;
 
 @Service
 public class ReplyServiceImpl implements ReplyService {
 
 	@Autowired ReplyMapper replyMapper;
+	@Autowired BoardMapper boardMapper;
 
 	@Override
 	public int insert(ReplyVO vo) {
+		boardMapper.updateReplycnt(vo.getBno(), 1L);
 		return replyMapper.insert(vo);
 	}
 
@@ -26,6 +28,7 @@ public class ReplyServiceImpl implements ReplyService {
 
 	@Override
 	public int delete(ReplyVO vo) {
+		boardMapper.updateReplycnt(vo.getBno(), -1L);
 		return replyMapper.delete(vo);
 	}
 
@@ -35,8 +38,11 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public List<ReplyVO> getList(Criteria cri, long bno) {
-		return replyMapper.getList(cri, bno);
+	public ReplyPageVO getList(Criteria cri, long bno) {
+		ReplyPageVO vo = new ReplyPageVO();
+		vo.setReplyCnt(replyMapper.getCountByBno(bno));
+		vo.setList(replyMapper.getList(cri, bno));
+		return vo;
 	}
 
 
