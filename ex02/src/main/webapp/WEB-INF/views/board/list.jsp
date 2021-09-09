@@ -17,10 +17,18 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h2 class="page-header">게시판</h2>
+		<h1 class="page-header">게시판</h1>
 	</div>
 	<!-- /.col-lg-12 -->
+</div>
+
+<!-- /.row -->	
+
+<div class="row">
+	<div class="col-lg-12">
+	<div class="panel panel-default">
 	
+	</div>
 	<table class="table" id="board">
 	<thead>
 		<tr>
@@ -39,7 +47,6 @@
 		</c:forEach>
 	</tbody>
 	</table>
-		<!-- <button type="button" onclick="location.href='register.jsp' " class="btn btn-default">등록</button> -->
 	
 	<form id="actionForm" action="list" method="get">
 		<select name="type">
