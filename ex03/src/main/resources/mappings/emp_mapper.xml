@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yedam.web.employees.mapper.EmpMapper">
+
+	<select id="emp" parameterType="EmpVO" resultType="EmpVO">
+	SELECT employee_id, first_name, last_name, email
+			hire_date, job_id
+	FROM employees
+	WHERE
+		<choose>
+			<when test="email != null and email != ''">
+				email = #{email}
+			</when>
+			<otherwise> employee_id = #{employee_id}</otherwise>
+		</choose>
+	</select>
+
+	<select id="getList" resultType="empVO">
+		SELECT employee_id, first_name, last_name, email, phone_number
+						,hire_date ,job_id ,salary, commission_pct, 
+						manager_id, department_id
+		FROM EMPLOYEES
+		ORDER BY employee_id DESC
+	</select>
+	
+</mapper>
