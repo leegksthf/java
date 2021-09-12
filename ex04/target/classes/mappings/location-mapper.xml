@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yedam.app.mapper.LocationMapper">
+	<select id="getList" resultType="LocationVO">
+		SELECT *
+		FROM LOCATIONS
+	</select>
+	
+	<select id="read" resultType="LocationVO">
+		SELECT *
+		FROM LOCATIONS
+		WHERE location_id=#{locationId}
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO LOCATIONS
+		VALUES(
+			#{locationId},
+			#{streetAddress},
+			#{postalCode},
+			#{city},
+			#{stateProvince},
+			#{countryId}
+		)
+	</insert>
+	
+	<delete id="delete">
+		DELETE 
+		FROM LOCATIONS
+		WHERE location_id=#{locaionId}
+	</delete>
+	
+	<update id="update">
+		UPDATE LOCATIONS
+		SET street_address = #{streetAddress},
+			postal_code = #{postalCode},
+			city = #{city},
+			state_province = #{stateProvince},
+			country_id = #{countryId}
+		WHERE location_id = #{locationId}
+	</update>
+	
+	
+</mapper>
