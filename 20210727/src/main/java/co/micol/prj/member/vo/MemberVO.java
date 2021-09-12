@@ -11,7 +11,6 @@ public class MemberVO {
 	
 	
 	public MemberVO() {
-		
 	}
 
 	public String getId() {
